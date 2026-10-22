@@ -1,0 +1,121 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Sonho Pet | Curso de Banho e Tosa em Guarulhos & Estética Animal (Astro Edition)",
+  description = "Aprenda uma profissão lucrativa com o Curso Profissionalizante de Banho e Tosa da Sonho Pet em Guarulhos. Aulas 100% práticas com cães reais, avaliação 5.0 no Google Maps."
+} = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LocalBusiness', 'EducationalOrganization'],
+      '@id': 'https://sonhopet.com.br/#business',
+      name: 'Sonho Pet Curso de Banho e Tosa',
+      alternateName: 'Sonho Pet',
+      url: 'https://sonhopet.com.br',
+      telephone: '+55-11-98380-0176',
+      priceRange: '$$',
+      image: 'https://sonhopet.com.br/logo.png',
+      description:
+        'Escola de formação profissional em banho e tosa e centro de estética pet em Guarulhos - SP. Aulas práticas com modelos reais, manejo humanizado, tosa máquina e tesoura. Avaliação 5.0 no Google Maps.',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Av. Jurema, 814',
+        addressLocality: 'Guarulhos',
+        addressRegion: 'SP',
+        postalCode: '07244-000',
+        addressCountry: 'BR',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -23.473532,
+        longitude: -46.438217,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      ],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5.0',
+        reviewCount: '58',
+        bestRating: '5',
+        worstRating: '1',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://sonhopet.com.br/#faq',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Preciso ter experiência prévia para fazer o curso de banho e tosa?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não! O curso da Sonho Pet capacita do absoluto zero ao avançado. Você aprende desde a psicologia canina e abordagem segura até tosa bebê e tosa na tesoura.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Como são as aulas práticas da Sonho Pet?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Nossa metodologia tem mais de 80% de aulas práticas com modelos reais em nossa sede na Av. Jurema, 814 em Guarulhos, com turmas reduzidas para atenção individual.',
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Google Fonts */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" 
+      rel="stylesheet" 
+    />
+
+    {/* Geo Tags */}
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content="Guarulhos" />
+    <meta name="geo.position" content="-23.473532;-46.438217" />
+    <meta name="ICBM" content="-23.473532, -46.438217" />
+
+    {/* Open Graph / Social */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:locale" content="pt_BR" />
+
+    {/* Schema.org Structured Data */}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-[#FAFAF9] text-stone-900 selection:bg-emerald-800 selection:text-white antialiased overflow-x-hidden">
+    <slot />
+  </body>
+</html>

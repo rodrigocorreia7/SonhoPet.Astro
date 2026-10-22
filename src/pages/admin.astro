@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AdminCrud } from '../components/AdminCrud';
+---
+
+<Layout 
+  title="Painel Administrativo CRUD | Sonho Pet" 
+  description="Painel de controle para gerenciar postagens do blog e contatos de alunos da Sonho Pet."
+>
+  <AdminCrud client:load />
+</Layout>

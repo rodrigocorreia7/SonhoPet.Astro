@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PawTrail } from '../components/PawTrail';
+import { Topbar } from '../components/Topbar';
+import { Header } from '../components/Header';
+import { UnifiedHeroVideo } from '../components/UnifiedHeroVideo';
+import { ServicesGrid } from '../components/ServicesGrid';
+import { Differentials } from '../components/Differentials';
+import { SocialProof } from '../components/SocialProof';
+import { BlogSection } from '../components/BlogSection';
+import { FaqSection } from '../components/FaqSection';
+import { CtaBanner } from '../components/CtaBanner';
+import { Footer } from '../components/Footer';
+import { FloatingWhatsApp } from '../components/FloatingWhatsApp';
+---
+
+<Layout>
+  {/* 🐾 Rastro Interativo de Patinhas Bege no Mouse */}
+  <PawTrail client:load />
+
+  {/* 1. Topbar Superior: ★ 5.0 Google Maps | Horários | Guarulhos */}
+  <Topbar client:idle />
+
+  {/* 2. Header Sticky: Logotipo Oficial, Âncoras, CTA WhatsApp, Link CRUD */}
+  <Header client:load />
+
+  <main id="main-content" class="flex-grow">
+    {/* 3. Hero & Storytelling Unificados: Vídeo Puro Frame 0 no Topo -> Play e Transição no Scroll */}
+    <UnifiedHeroVideo client:load />
+
+    {/* 4. Serviços Estratégicos & Simulador de Renda para Groomers com Coração Pulsando */}
+    <ServicesGrid client:visible />
+
+    {/* 5. Prova Social & Avaliações Google ★ 5.0 */}
+    <SocialProof client:visible />
+
+    {/* 6. Pilares & Quote Card de Filosofia da Empresa */}
+    <Differentials client:visible />
+
+    {/* 7. Blog & Conhecimento Pet (Atualizado via Painel CRUD) */}
+    <BlogSection client:visible />
+
+    {/* 8. FAQ Acessível (com Schema FAQPage) */}
+    <FaqSection client:visible />
+
+    {/* 9. CTA Banner de Alta Conversão */}
+    <CtaBanner client:visible />
+  </main>
+
+  {/* 10. Rodapé Corporativo com NAP Completo */}
+  <Footer client:idle />
+
+  {/* 11. Botão Flutuante de WhatsApp (WCAG AAA #075E54) */}
+  <FloatingWhatsApp client:idle />
+</Layout>

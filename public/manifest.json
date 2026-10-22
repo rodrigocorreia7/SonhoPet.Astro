@@ -1,0 +1,16 @@
+{
+  "name": "Sonho Pet Curso de Banho e Tosa",
+  "short_name": "Sonho Pet",
+  "description": "Curso Profissionalizante de Banho e Tosa e Estética Pet em Guarulhos - SP",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF9",
+  "theme_color": "#075E54",
+  "icons": [
+    {
+      "src": "/pets-trio.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}
